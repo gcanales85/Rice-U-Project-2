@@ -16,4 +16,9 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
   accessToken: API_KEY
 }).addTo(myMap);
 
-var link 
+var link ="https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
+d3.json(link).then(function(data){
+  console.log(data)
+})
+
+L.geoJson(statesData).addTo(map)
