@@ -6,6 +6,10 @@ from flask import (
     request,
     redirect)
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Session
+import pandas as pd
 
 #################################################
 # Flask Setup
@@ -24,21 +28,22 @@ except KeyError:
 print(db_uri)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
+
 db = SQLAlchemy(app)
 
 
 # create route that renders index.html template
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return("This")
+    # return render_template("index.html")
 
 
 @app.route("/api/states")
 def states():
-    results = db.session.query(states).all()
-
-    return jsonify(results)
+    df = pd.read_sql_query("SELECT * FROM states", db.engine)
+    return df.to_json(orient='records')
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
