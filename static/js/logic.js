@@ -4,17 +4,25 @@
 //   L.latLng(83.162102, -52.233040)  //Northeast
 // );
 
+var southWest = L.latLng(40.712, -74.227);
+var northEast = L.latLng(40.774, -74.125);
+var myBounds = L.latLngBounds(southWest, northEast);
+
 // Creating map object
-var myMap = L.map("map").setView([39.8097343,-98.5556199], 4);
+var myMap = L.map("map").setView([38.809,-98.5556199], 5);
 
 // Adding tile layer
-L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  tileSize: 512,
-  id: "light-v9",
-  zoomOffset:-1,
-  accessToken: API_KEY
-}).addTo(myMap);
+// L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+//   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//   tileSize: 512,
+//   bounds: myBounds,
+//   id: "light-v9",
+//   maxZoom: 18,
+//   accessToken: API_KEY
+// }).addTo(myMap);
+
+// L.marker([40.712, -74.227]).addTo(myMap);
+// L.marker([40.774, -74.125]).addTo(myMap);
 
 function getColor(d) {
   return d > 1000 ? '#800026' :
@@ -28,6 +36,8 @@ function getColor(d) {
 }
 
 var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
+
+
 // var link ="static/data/statesdata.geojson"; 
 d3.json(link).then(function(data){
   // console.log(data);
