@@ -5,7 +5,7 @@
 // );
 
 // Creating map object
-var myMap = L.map("map").setView([37.8,-96], 4);
+var myMap = L.map("map").setView([39.8097343,-98.5556199], 4);
 
 // Adding tile layer
 L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
@@ -16,9 +16,38 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
   accessToken: API_KEY
 }).addTo(myMap);
 
-var link ="https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
+function getColor(d) {
+  return d > 1000 ? '#800026' :
+         d > 500  ? '#BD0026' :
+         d > 200  ? '#E31A1C' :
+         d > 100  ? '#FC4E2A' :
+         d > 50   ? '#FD8D3C' :
+         d > 20   ? '#FEB24C' :
+         d > 10   ? '#FED976' :
+                    '#FFEDA0';
+}
+
+var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
+// var link ="static/data/statesdata.geojson"; 
 d3.json(link).then(function(data){
-  console.log(data)
+  // console.log(data);
+  L.geoJson(data, {
+    style: style
+  }).addTo(myMap);
+  
+
+  function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.density),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
 })
 
-L.geoJson(statesData).addTo(map)
+
+
