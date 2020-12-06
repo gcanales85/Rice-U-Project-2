@@ -8,6 +8,34 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
 
+    <!-- Custom Slider J-QUERY-->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+      #custom-handle {
+        width: 3em;
+        height: 1.6em;
+        top: 50%;
+        margin-top: -.8em;
+        text-align: center;
+        line-height: 1.6em;
+      }
+      </style>
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+      $( function() {
+        var handle = $( "#custom-handle" );
+        $( "#slider" ).slider({
+          create: function() {
+            handle.text( $( this ).slider( "value" ) );
+          },
+          slide: function( event, ui ) {
+            handle.text( ui.value );
+          }
+        });
+      } );
+      </script> -->
+
     <!-- d3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
@@ -20,8 +48,14 @@
   </head>
   <body>
 
+    <!-- Jquery slider -->
+<!-- 
+    <div id="slider">
+  <div id="custom-handle" class="ui-slider-handle"></div>
+</div> -->
+
     <!-- The div where we will inject our map -->
-    <scrip>col-md-8</scrip>
+    
     <div id="map"></div>
 
     <script type="text/javascript" src="static/js/config.js"></script>
