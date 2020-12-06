@@ -10,6 +10,9 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session
 import pandas as pd
+import json
+from sqlalchemy import create_engine
+
 
 #################################################
 # Flask Setup
@@ -30,9 +33,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 
 db = SQLAlchemy(app)
+pg_user = 'postgres'
+pg_password = 'password1'
+db_name = 'unemployment_db'
 
+connection_string = f"{pg_user}:{pg_password}@localhost:5432/{db_name}"
+engine = create_engine(f'postgresql://{connection_string}')
 
 # create route that renders index.html template
+
+
 @app.route("/")
 def home():
     return("This")
@@ -41,8 +51,18 @@ def home():
 
 @app.route("/api/states")
 def states():
-    df = pd.read_sql_query("SELECT * FROM states", db.engine)
-    return df.to_json(orient='records')
+
+    with engine.connect() as connection:
+        result = connection.execute(
+            'SELECT geojson.state, geojson.density, geojson.coordinates, states_unemployment.data FROM geojson INNER JOIN states_unemployment on geojson.state = states_unemployment.state')
+        result = [dict(row) for row in result]
+
+        json_result = []
+        for row in result:
+            row['density'] = float(row['density'])
+            json_result.append(row)
+
+        return jsonify(json_result)
 
 
 if __name__ == "__main__":
