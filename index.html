@@ -64,6 +64,28 @@
     <div id='console'>
       <h1>Unemployment Rate per State</h1>
       <p>Data: <a href='https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'>Unemployment Rate per State</a> 2010-2020</p>
+      
+      <div class='session'>
+        <h2>Unemployment Rate</h2>
+        <div class='row colors'>
+        </div>
+        <div class='row labels'>
+          <div class='label'>2%</div>
+          <div class='label'>4%</div>
+          <div class='label'>6%</div>          
+          <div class='label'>8%</div>          
+          <div class='label'>10%+</div>
+
+          <div class='session' id='sliderbar'>
+            <h2>Date: <label id='active-date'>Oct 2010</label></h2>
+            <!-- have to update timebar -->
+            <input id='slider' class='row' type='range' min='0' max='23' step='1' value='12' />  
+          </div>
+
+        </div>
+      </div>
+    
+    
     </div>
 
 

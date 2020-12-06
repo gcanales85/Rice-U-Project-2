@@ -29,7 +29,8 @@ a {
 
 #console {
   position: absolute;
-  width: 240px;
+  width: 300px;
+  height: 25%;
   margin: 10px;
   padding: 10px 20px;
   background-color: white;
@@ -39,6 +40,29 @@ body,
 html {
   height: 100%;
 }
+
+.session {
+  margin-bottom: 20px;
+}
+
+.row {
+  height: 12px;
+  width: 100%;
+}
+
+.colors {
+  background: linear-gradient(to right, #FFEDA0, #FED976, #FEB24C, #FD8D3C, #E31A1C, #BD0026, #800026 );
+  margin-bottom: 5px;
+}
+
+.label {
+  width: 17%;
+  display: inline-block;
+  text-align: center;
+}
+
+
+
 
 .leaflet-popup-content {
   text-align: center;
