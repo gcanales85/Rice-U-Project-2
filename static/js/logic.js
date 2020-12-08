@@ -15,8 +15,8 @@ function getColor(d) {
 }
 
 // Datafile with state borders
-var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
-// var link ="static/data/statesdata.geojson"; 
+// var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
+var link ="static/data/statesdata.json"; 
 
 // Create map using GeoJson
 d3.json(link).then(function(data){
