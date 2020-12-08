@@ -54,15 +54,10 @@ def states():
 
     with engine.connect() as connection:
         result = connection.execute(
-            'SELECT geojson.state, geojson.density, geojson.coordinates, states_unemployment.data FROM geojson INNER JOIN states_unemployment on geojson.state = states_unemployment.state')
+            'SELECT * FROM states')
         result = [dict(row) for row in result]
 
-        json_result = []
-        for row in result:
-            row['density'] = float(row['density'])
-            json_result.append(row)
-
-        return jsonify(json_result)
+        return jsonify(result)
 
 
 if __name__ == "__main__":
