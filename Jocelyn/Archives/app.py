@@ -19,7 +19,7 @@ app = Flask(__name__)
 try:
     db_uri = os.environ['DATABASE_URL']
 except KeyError:
-    db_uri = "postgres://postgres:password1@localhost:5432/unemployment_db"
+    db_uri = "postgres://postgres:Watermelontessa7@localhost:5432/unemployment_db"
 
 print(db_uri)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
