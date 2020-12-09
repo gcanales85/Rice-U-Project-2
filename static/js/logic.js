@@ -39,5 +39,15 @@ d3.json(link).then(function(data){
 
 })
 
+var url = "static/data/test_unemp2.json"
+
+function getRate(ue){
+  d3.json(url).then((data) => {
+    // console.log(data)
+    var rate = data.filter()
 
 
+  })
+}
+
+getRate()
