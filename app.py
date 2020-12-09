@@ -45,8 +45,8 @@ engine = create_engine(f'postgresql://{connection_string}')
 
 @app.route("/")
 def home():
-    return("This")
-    # return render_template("index.html")
+    # return("This")
+    return render_template("index.html")
 
 
 @app.route("/api/states")

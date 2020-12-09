@@ -1,3 +1,9 @@
+var url = "/api/states";
+d3.json(url).then(function (response) {
+
+    console.log(response);
+});
+
 
 // Creating map object (under "map" / AK, HI will ahve to be other maps)
 var myMap = L.map("map").setView([38.809, -98.5556199], 5);
@@ -16,7 +22,7 @@ function getColor(d) {
 
 // Datafile with state borders
 // var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
-var link = "static/data/statesdata.json";
+var link = "../static/data/statesdata.json";
 
 // Create map using GeoJson
 d3.json(link).then(function (data) {
@@ -39,3 +45,15 @@ d3.json(link).then(function (data) {
 
 })
 
+// document.getElementById('slider').addEventListener('input', function (e) {
+//     var hour = parseInt(e.target.value);
+//     // update the map
+//     map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
+
+//     // converting 0-23 hour to AMPM format
+//     var ampm = hour >= 12 ? 'PM' : 'AM';
+//     var hour12 = hour % 12 ? hour % 12 : 12;
+
+//     // update text in the UI
+//     document.getElementById('active-hour').innerText = hour12 + ampm;
+// });
