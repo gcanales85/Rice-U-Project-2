@@ -12,7 +12,7 @@ d3.json(url).then(function (response) {
     // })
     // console.log(min, max);
     uedata = response;
-});
+
 
 
 // Creating map object (under "map" / AK, HI will ahve to be other maps)
@@ -49,9 +49,9 @@ d3.json(link).then(function (data) {
     let state = s.properties.name;
     let statedata = uedata.filter(obj => state === obj.State)[0];
     let date = ue;
-    console.log(ue)
+    // console.log(ue)
     console.log(state)
-    // console.log(statedata[date])
+    console.log(statedata[date])
 
     return {
         fillColor: getColor(statedata[date]),
@@ -74,7 +74,12 @@ d3.json(link).then(function (data) {
       fillOpacity: 0.7
     });
   
-    
+    // layerPopup = L.popup()
+    //   .setLatLng(e.latlng)
+    //   .setContent(unempRate(e))
+    //   .openOn(myMap)
+
+
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge){
       layer.bringToFront();
     }
@@ -94,8 +99,9 @@ d3.json(link).then(function (data) {
         mouseout: resetHighlight,
         click: zoomToFeature
     });
-    
-    layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + "UNEMPLOYMENT RATE" + "</h2>") 
+   
+
+    layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + "" + "</h2>") 
     // console.log(feature.properties.name)
   }
 
@@ -128,4 +134,7 @@ d3.json(link).then(function (data) {
 }
   legend.addTo(myMap)
 }
+
 getRate("20-Sep")
+});
+
