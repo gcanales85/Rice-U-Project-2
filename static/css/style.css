@@ -105,5 +105,22 @@ html {
 h1 {
   text-align: center;
 }
-
-
+.spot{
+  width: 15px;
+  height: 15px;
+}
+.gt9{
+  background: rgb(57, 84, 99);
+}
+.gte7{
+  background: rgb(87,123,143);
+}
+.gte5{
+  background: rgb(124,172,197);
+}
+.gte3{
+  background: rgb(187,219,239);
+}
+.lt3{
+  background: rgb(207,222,231);
+}
