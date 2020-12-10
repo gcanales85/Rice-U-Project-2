@@ -1,7 +1,17 @@
+
+var uedata;
 var url = "/api/states";
 d3.json(url).then(function (response) {
-
-    console.log(response);
+    // let min = 100, max = -1;
+    // console.log(response);
+    // response.forEach(obj => {
+    //     Object.values(obj).forEach(v => {
+    //         min = (min > v) ? v : min; //if min is greated than v then set min to v, otherwise leave min alone
+    //         max = (max < v) ? v : max;
+    //     })
+    // })
+    // console.log(min, max);
+    uedata = response;
 });
 
 
@@ -10,13 +20,13 @@ var myMap = L.map("map").setView([38.809, -98.5556199], 5);
 
 // Color mapping (will be based on unemployment numbers)
 function getColor(d) {
-    return d > 1000 ? '#800026' :
-        d > 500 ? '#BD0026' :
-            d > 200 ? '#E31A1C' :
-                d > 100 ? '#FC4E2A' :
-                    d > 50 ? '#FD8D3C' :
-                        d > 20 ? '#FEB24C' :
-                            d > 10 ? '#FED976' :
+    return d > 14 ? '#800026' :
+        d > 12 ? '#BD0026' :
+            d > 10 ? '#E31A1C' :
+                d > 8 ? '#FC4E2A' :
+                    d > 6 ? '#FD8D3C' :
+                        d > 4 ? '#FEB24C' :
+                            d > 2 ? '#FED976' :
                                 '#FFEDA0';
 }
 
@@ -25,6 +35,8 @@ function getColor(d) {
 var link = "../static/data/statesdata.json";
 
 // Create map using GeoJson
+
+
 d3.json(link).then(function (data) {
     // console.log(data);
     L.geoJson(data, {
@@ -33,8 +45,12 @@ d3.json(link).then(function (data) {
 
     // Styling of map
     function style(feature) {
+        let state = feature.properties.name;
+        let statedata = uedata.filter(obj => state === obj.State)[0];
+        let date = "20-May";
+
         return {
-            fillColor: getColor(feature.properties.density),
+            fillColor: getColor(statedata[date]),
             weight: 2,
             opacity: 1,
             color: 'white',
@@ -45,7 +61,7 @@ d3.json(link).then(function (data) {
 
 })
 
-// document.getElementById('slider').addEventListener('input', function (e) {
+// document.getElementById('slider').addEventListener('change', function (e) {
 //     var hour = parseInt(e.target.value);
 //     // update the map
 //     map.setFilter('collisions', ['==', ['number', ['get', 'Hour']], hour]);
