@@ -102,7 +102,30 @@ d3.json(link).then(function (data) {
 
   })
 
+// Add Legend
+  var legend = L.control({position: 'bottomright'});
 
+  legend.onAdd = function(){
+    var div = L.DomUtil.create("div", "info legend");
+    var grades = [0, 3, 5, 7, 9];
+    var colors = [
+      '#d5e5f5',
+      '#9dd0eb',
+      '#5a9ec7',
+      '#2776b0',
+      '#04386e',      
+    ];
+  
+
+  for (var i=0; i < grades.length; i++){
+    div.innerHTML +=
+    "<i style='background: " + colors[i] + "'></i> " +
+    grades[i] + (grades[i +1] ? "&ndash;" + grades[i +1] + "<br>" : "+")
+  }
+  return div;
+
+  
+}
+  legend.addTo(myMap)
 }
 getRate("20-Sep")
-

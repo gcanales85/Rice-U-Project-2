@@ -87,7 +87,13 @@ html {
   list-style-type: none;
 }
 
-.legend li {
+.legend i {
+  width: 14px;
+  height:14px;
+  float:left;
+}
+
+/* .legend li {
   display: inline-block;
   width: 30px;
   height: 22px;
@@ -100,10 +106,7 @@ html {
 
 .legend .max {
   float: right;
-}
+} */
 
-h1 {
-  text-align: center;
-}
 
 
