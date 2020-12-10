@@ -32,7 +32,7 @@ function getColor(d) {
 // var link = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
 var link = "../static/data/statesdata.json";
 
-
+var layer;
 // Create map using GeoJson
 function getRate(ue){
 d3.json(link).then(function (data) {
@@ -95,8 +95,8 @@ d3.json(link).then(function (data) {
         click: zoomToFeature
     });
     
-    // layer.bindTooltip("<h1>" + state + "</h1> <br> <h2>" + statedata + "</h2>") 
-  
+    layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + "UNEMPLOYMENT RATE" + "</h2>") 
+    // console.log(feature.properties.name)
   }
 
 
