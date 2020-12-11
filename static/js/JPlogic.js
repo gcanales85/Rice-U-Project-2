@@ -86,7 +86,7 @@ d3.json(link).then(function (data) {
                 });
 
 
-                layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + statedata[date] + "</h2>")
+                layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + statedata[date] + "% </h2>")
                 // console.log(feature.properties.name)
             }
         }).addTo(myMap);
@@ -167,8 +167,8 @@ d3.json(link).then(function (data) {
 
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
-                "<i style='background: " + colors[i] + "'></i> " +
-                grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+")
+                "<i style='background: " + colors[i] +  "'></i> " +
+                grades[i] + "%"+ (grades[i + 1] ? "&ndash;" + grades[i + 1] + "%" + "<br>" : "+")
         }
         return div;
 

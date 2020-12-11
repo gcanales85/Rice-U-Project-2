@@ -18,14 +18,18 @@ body {
 
 
 h1 {
-  font-size: 20px;
+  font-size: 30px;
   line-height: 30px;
+  font-weight: bold;
+  display: block;
+  color: black
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 24px;
   line-height: 20px;
   margin-bottom: 10px;
+  margin-top: 1px
 }
 
 a {
@@ -82,13 +86,13 @@ html {
 
 /* CSS from the Leaflet-Choropleth documentation */
 .legend {
-  padding: 6px 8px;
-  font: 12px Arial, Helvetica, sans-serif;
+  padding: 14px 12px;
+  font: 24px Arial, Helvetica, sans-serif;
   font-weight: bold;
   color: #555;
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -100,8 +104,8 @@ html {
 }
 
 .legend i {
-  width: 14px;
-  height:14px;
+  width: 30px;
+  height:20px;
   float:left;
 }
 
