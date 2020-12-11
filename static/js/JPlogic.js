@@ -24,13 +24,12 @@ var myMap = L.map("map").setView([38.809, -98.5556199], 5);
 
 // Color mapping (will be based on unemployment numbers)
 function getColor(d) {
-    return d > 9 ? 'rgb(57, 84, 99)' :
-        d > 7 ? 'rgb(87,123,143)' :
-            d > 5 ? 'rgb(124,172,197)' :
-                d > 3 ? 'rgb(187,219,239)' :
-                    'rgb(207,222,231)';
+    return d > 8.9 ? '#04386e' :
+        d > 6.9 ? '#2776b0' :
+            d > 4.9 ? '#5a9ec7' :
+                d > 2.9 ? '#9dd0eb' :
+                    '#d5e5f5 ';
 }
-
 
 
 
@@ -57,8 +56,39 @@ d3.json(link).then(function (data) {
         // console.log(min, max);
         uedata = response;
 
+        // the year in month names
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+        // our target for all the year-months, initialized with the dates from 2010
+        const dates = ["10-Oct", "10-Nov", "10-Dec"]
+
+        // loop over all the years from 11 thru 20
+        // add to the dates array (above)
+        // map the months (an array of string names of months) to strings that have the year with a dash and the month names
+        // flattens the array produced by the map into 12 elements that get added into the dates array
+        for (let yr = 11; yr < 21; yr++) {
+            dates.push(...months.map(m => yr + "-" + m))
+        }
+
         var geo = L.geoJson(data, {
-            style: style
+            style: style,
+            onEachFeature: function (feature, layer) {
+                let state = feature.properties.name;
+                let statedata = uedata.filter(obj => state === obj.State)[0];
+                let date = dates[0];
+
+                layer.on({
+                    mouseover: highlight,
+                    mouseout: function (e) {
+                        geo.resetStyle(e.target);
+                    },
+                    click: zoomToFeature
+                });
+
+
+                layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + statedata[date] + "</h2>")
+                // console.log(feature.properties.name)
+            }
         }).addTo(myMap);
 
         // Styling of map
@@ -79,18 +109,18 @@ d3.json(link).then(function (data) {
         }
 
         // the year in month names
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-        // our target for all the year-months, initialized with the dates from 2010
-        const dates = ["10-Oct", "10-Nov", "10-Dec"]
+        // // our target for all the year-months, initialized with the dates from 2010
+        // const dates = ["10-Oct", "10-Nov", "10-Dec"]
 
         // loop over all the years from 11 thru 20
         // add to the dates array (above)
         // map the months (an array of string names of months) to strings that have the year with a dash and the month names
         // flattens the array produced by the map into 12 elements that get added into the dates array
-        for (let yr = 11; yr < 21; yr++) {
-            dates.push(...months.map(m => yr + "-" + m))
-        }
+        // for (let yr = 11; yr < 21; yr++) {
+        //     dates.push(...months.map(m => yr + "-" + m))
+        // }
 
 
 
@@ -113,7 +143,82 @@ d3.json(link).then(function (data) {
 
 
                 })
+                layer.bindTooltip("<h1>" + state + "</h1> <br> <h2>" + statedata[date] + "</h2>")
             })
+
         });
+
+
     })
+
+    var legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function () {
+        var div = L.DomUtil.create("div", "info legend");
+        var grades = [0, 3, 5, 7, 9];
+        var colors = [
+            '#d5e5f5',
+            '#9dd0eb',
+            '#5a9ec7',
+            '#2776b0',
+            '#04386e',
+        ];
+
+
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                "<i style='background: " + colors[i] + "'></i> " +
+                grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+")
+        }
+        return div;
+
+
+    }
+    legend.addTo(myMap)
 });
+
+function highlight(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        fillColor: '#e8dc2e',
+        color: '#636161',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    // layerPopup = L.popup()
+    //   .setLatLng(e.latlng)
+    //   .setContent(unempRate(e))
+    //   .openOn(myMap)
+
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+}
+
+function resetHighlight(e) {
+    geo.resetStyle(e.target);
+}
+
+function zoomToFeature(e) {
+    myMap.fitBounds(e.target.getBounds());
+}
+
+// function onEachFeature(feature, layer) {
+//     let state = feature.properties.name;
+//     let statedata = uedata.filter(obj => state === obj.State)[0];
+//     let date = ue;
+
+//     layer.on({
+//         mouseover: highlight,
+//         mouseout: resetHighlight,
+//         click: zoomToFeature
+//     });
+
+
+//     layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + statedata[date] + "</h2>")
+//     // console.log(feature.properties.name)
+// }
