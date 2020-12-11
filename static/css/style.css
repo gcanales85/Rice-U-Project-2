@@ -51,7 +51,7 @@ html {
 }
 
 .colors {
-  background: linear-gradient(to right, #FFEDA0, #FED976, #FEB24C, #FD8D3C, #E31A1C, #BD0026, #800026 );
+  background: linear-gradient(to right, #d5e5f5, #9dd0eb, #5a9ec7, #2776b0, #04386e);
   margin-bottom: 5px;
 }
 
@@ -87,7 +87,13 @@ html {
   list-style-type: none;
 }
 
-.legend li {
+.legend i {
+  width: 14px;
+  height:14px;
+  float:left;
+}
+
+/* .legend li {
   display: inline-block;
   width: 30px;
   height: 22px;
@@ -100,7 +106,7 @@ html {
 
 .legend .max {
   float: right;
-}
+} */
 
 h1 {
   text-align: center;
