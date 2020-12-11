@@ -51,7 +51,7 @@ d3.json(link).then(function (data) {
     let date = ue;
     // console.log(ue)
     console.log(state)
-    console.log(statedata[date])
+    // console.log(statedata[date])
 
     return {
         fillColor: getColor(statedata[date]),
@@ -63,6 +63,8 @@ d3.json(link).then(function (data) {
     };
     
   }
+
+  console.log(statedata[date])
   function highlight(e) {
     var layer = e.target;
   
@@ -94,6 +96,10 @@ d3.json(link).then(function (data) {
   }
   
   function onEachFeature(feature, layer) {
+    let state = feature.properties.name;
+    let statedata = uedata.filter(obj => state === obj.State)[0];
+    let date = ue;
+    
     layer.on({
         mouseover: highlight,
         mouseout: resetHighlight,
@@ -101,7 +107,7 @@ d3.json(link).then(function (data) {
     });
    
 
-    layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + "" + "</h2>") 
+    layer.bindTooltip("<h1>" + feature.properties.name + "</h1> <br> <h2>" + statedata[date] + "</h2>") 
     // console.log(feature.properties.name)
   }
 
@@ -109,7 +115,7 @@ d3.json(link).then(function (data) {
   })
 
 // Add Legend
-  var legend = L.control({position: 'bottomright'});
+  var legend = L.control({position: 'bottomright'}); 
 
   legend.onAdd = function(){
     var div = L.DomUtil.create("div", "info legend");
