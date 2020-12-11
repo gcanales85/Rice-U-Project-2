@@ -12,6 +12,19 @@
   <!-- MAPBOX SLIDER -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
 
   <!-- Custom Slider J-QUERY-->
   <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -59,42 +72,62 @@
     <div id="slider">
   <div id="custom-handle" class="ui-slider-handle"></div>
 </div> -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <a class="navbar-brand" href="landing_2.html">Unemployment Rate</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="">Significant Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Data</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br><br>
+  <div class="row">
+    <div class="container1 col-md-12">
+      <h1 class="display-4">Unemployment Rate in the US</h1>
+      <hr class="my-4">
+      <!-- The div where we will inject our map -->
+      <div id="map"></div>
+      <div id='console'>
+        <h1>Unemployment Rate per State</h1>
+        <p>Data: <a
+            href='https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'>Unemployment
+            Rate per State</a> 2010-2020</p>
 
-  <!-- The div where we will inject our map -->
+        <div class='session'>
+          <h2>Unemployment Rate</h2>
+          <div class='row colors'>
+          </div>
+          <div class='row labels'>
+            <div class='label'>2%</div>
+            <div class='label'>4%</div>
+            <div class='label'>6%</div>
+            <div class='label'>8%</div>
+            <div class='label'>10%+</div>
 
-  <div id="map"></div>
-  <div id='console'>
-    <h1>Unemployment Rate per State</h1>
-    <p>Data: <a
-        href='https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json'>Unemployment
-        Rate per State</a> 2010-2020</p>
+            <div class='session' id='sliderbar'>
+              <h2>Date: <label id='active-date'>Oct 2010</label></h2>
+              <!-- have to update timebar -->
+              <input id='slider' class='row' type='range' min='0' max='120' step='1' value='0' />
+            </div>
 
-    <div class='session'>
-      <h2>Unemployment Rate</h2>
-      <div class='row colors'>
-      </div>
-      <div class='row labels'>
-        <div class='label'>2%</div>
-        <div class='label'>4%</div>
-        <div class='label'>6%</div>
-        <div class='label'>8%</div>
-        <div class='label'>10%+</div>
-
-        <div class='session' id='sliderbar'>
-          <h2>Date: <label id='active-date'>Oct 2010</label></h2>
-          <!-- have to update timebar -->
-          <input id='slider' class='row' type='range' min='0' max='120' step='1' value='0' />
+          </div>
         </div>
 
+
       </div>
-    </div>
 
 
-  </div>
-
-
-  <script type="text/javascript" src="static/js/config.js"></script>
-  <script type="text/javascript" src="static/js/JPlogic.js"></script>
+      <script type="text/javascript" src="static/js/config.js"></script>
+      <script type="text/javascript" src="static/js/JPlogic.js"></script>
 
 </body>
 
