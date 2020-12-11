@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Homework 11</title>
+  <title>Unemployment</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -14,14 +14,14 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-light">
-    <a class="navbar-brand" href="../html_files/landing_2.html">Latitude</a>
+    <a class="navbar-brand" href="landing_2.html">Unemployment Rate</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Plots
           </a>
@@ -31,12 +31,12 @@
             <a class="dropdown-item" href="../html_files/cloudiness.html">Cloudiness</a>
             <a class="dropdown-item" href="../html_files/windspeed.html">Wind Speed</a>
           </div>          
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="../html_files/comparison2.html">Comparison</a>
+          <a class="nav-link" href="">Significant Events</a>
         </li>        
         <li class="nav-item">
-          <a class="nav-link" href="../html_files/weather_data2.html">Data</a>
+          <a class="nav-link" href="">Data</a>
         </li>
       </ul>
     </div>
@@ -44,34 +44,22 @@
 <br><br>
       <div class="row">
         <div class="container1 col-md-5">
-          <h1 class="display-4">Summary: Latitude vs. X</h1>
+          <h1 class="display-4">Unemployment Rate in the US</h1>
           <hr class="my-4">
-          <img src="../images/Fig1.png" alt="Landing Pg Visualization" class="float-left">
-          <p class="lead">The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled
-            the data from the OpenWeather API to assemble a dataset on over 500 cities.
-          </p>
-          <p class="lead">After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, 
-            cloudiness, wind speed and humdity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions 
-            of any trends and correlations witnessed.
-          </p>
+          <img src="image (2).png" alt="United States Unemployment Image" class="float-left">
+          
         </div>
         <div class="container2 col-md-3 col-sm-5 col-5">
-            <h1 class="display-4">Visualizations</h1>
+            <h1 class="display-4">Project Description</h1>
             <hr class="my-3">
-            <div class="row">
-              <img src="../images/Fig1.png" alt="Landing Pg Visualization" class="img3">
-              <img src="../images/Fig2.png" alt="Landing Pg Visualization" class="img3">
-            </div>
-            <div class="row">
-              <img src="../images/Fig3.png" alt="Landing Pg Visualization" class="img3">
-              <img src="../images/Fig4.png" alt="Landing Pg Visualization" class="img3">
-            </div>
-          </div>
-        </div> 
-      </div> 
-    </div>   
+              <p class="lead">The purpose of this project was to analyze how unemployment rates have changed over time. To accomplish this analysis, we first pulled
+                the data from the US <a href = "https://www.bls.gov/developers/"></href> Bureau of Labor Statistics</a> to assemble a dataset on a monthly basis for the past 10 years.
+              </p>
+              <p class="lead">After assembling the dataset, we used the Pandas Library to clean up and integrate the data into a SQL Database....
+              </p>
 
- 
+          </div>
+        </div>  
   </div>
 
 </body>
