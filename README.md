@@ -38,7 +38,7 @@ The map shows how moving the slider across different time periods, reflects the 
 
   - Leveraged JavaScript and leaflet to load and match the geojson data with the coordinates per each state with the unemployment data for each state on a given period of time
 ![Interactive Map](images/July2020.PNG)
-##Interpreting the Interactive Map## <br>
+**Interpreting the Interactive Map** <br>
 The graph shows how the selected rate (seasonally adjusted) changes over time and across different months/years. <br>
 
   - Read csv file into Plotly
