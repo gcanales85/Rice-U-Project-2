@@ -33,7 +33,7 @@ var data = [trace1];
 // layout is optional, but contains chart title, axis information, and any other custom layout behavior
 var layout = {
   title: "USA unemployment rates over the last 10 years",
-  xaxis: { title: "Months"},
+  xaxis: { title: "Months-Year"},
   yaxis: { title: "Rates"},
   showgrid: true,
   zeroline: false,
