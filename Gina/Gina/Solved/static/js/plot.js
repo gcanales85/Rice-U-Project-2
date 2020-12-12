@@ -18,7 +18,13 @@ var trace1 = {
     4.98,4.95,4.93,4.91,4.88,4.88,4.86,4.85,4.85,4.83,4.8,4.78,4.75,4.7,4.64,4.57,4.5,4.43,4.36,4.34,
     4.28,4.28,4.24,4.23,4.19,4.15,4.11,4.08,4.05,4.01,3.98,3.94,3.9,3.85,3.82,3.8,3.8,3.81,3.82,3.82,
     3.8,3.77,3.75,3.71,3.68,3.67,3.66,3.66,3.67,3.66,3.67,3.65,3.62,4.15,14.18,12.28,9.81,9.17,7.78,7.26,6.41],
-  type: "line"
+  type: "linear",
+  name: 'unemployment curve',
+  text: 'Unemployment rate, seasonally adjusted',
+  line: {
+    color: 'rgb(25, 25, 255)',
+    width: 3
+  }
 };
 
 // our trace is enclosed within an Array because you will later see that we can have multiple traces for a plot.
@@ -26,93 +32,27 @@ var data = [trace1];
 
 // layout is optional, but contains chart title, axis information, and any other custom layout behavior
 var layout = {
-  title: "USA unemployment rates over the last 10 years"
-};
+  title: "USA unemployment rates over the last 10 years",
+  xaxis: { title: "Months"},
+  yaxis: { title: "Rates"},
+  showgrid: true,
+  zeroline: false,
+  type: 'line',
+  x0: 1,
+  y0: 0,
+  x1: 1,
+  y1: 2,
+  line: {
+    color: 'rgb(55, 128, 191)',
+    width: 3
+  }
 
+};
+var data = [trace1];
 // the first argument below ("plot") refers to the id of the div where the play will be displayed
 // the second argument refers to our trace
 // the third argument is optional. It refers to the chart's layout details.
 Plotly.newPlot("plot", data, layout);
 
-
-
-
-
-// // Part 2 - Adding attributes
-// var trace1 = {
-//   x: ["beer", "wine", "martini", "margarita",
-//       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-//   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-//   type: "bar"
-// };
-
-// var data = [trace1];
-
-// var layout = {
-//   title: "'Bar' Chart",
-//   xaxis: { title: "Drinks"},
-//   yaxis: { title: "% of Drinks Ordered"}
-// };
-
-// Plotly.newPlot("plot", data, layout);
-
-
-
-
-
-// // Part 3 - Line Chart
-// var trace1 = {
-//   x: ["beer", "wine", "martini", "margarita",
-//       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-//   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-//   type: "line"
-// };
-
-// var data = [trace1];
-
-// var layout = {
-//   title: "'Bar' Chart",
-// };
-
-// Plotly.newPlot("plot", data, layout);
-
-
-
-
-// // Part 4 - Broken Pie Chart
-// var trace1 = {
-//   x: ["beer", "wine", "martini", "margarita",
-//       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-//   y: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-//   type: "pie"
-// };
-
-// var data = [trace1];
-
-// var layout = {
-//   title: "'Bar' Chart",
-// };
-
-// Plotly.newPlot("plot", data, layout);
-
-
-
-
-
-// // Part 5 - Working Pie Chart
-// var trace1 = {
-//   labels: ["beer", "wine", "martini", "margarita",
-//       "ice tea", "rum & coke", "mai tai", "gin & tonic"],
-//   values: [22.7, 17.1, 9.9, 8.7, 7.2, 6.1, 6.0, 4.6],
-//   type: 'pie'
-// };
-
-// var data = [trace1];
-
-// var layout = {
-//   title: "'Bar' Chart",
-// };
-
-// Plotly.newPlot("plot", data, layout);
 
 
