@@ -32,17 +32,19 @@ US unemployment data was gathered from [The U.S. Department of Labor](https://ww
 Data Processing 
 ---------------
 **Interpreting the Interactive Map** <br>
+
 The map shows how moving the slider across different time periods, reflects the changes in state color to demonstrate high/lows of unemployment rates. 
 
   - Loading department of labor data with unemployment rate per state from 2010-2020 Postgres to flask. 
 
   - Leveraged JavaScript and leaflet to load and match the geojson data with the coordinates per each state with the unemployment data for each state on a given period of time
-![Interactive Map](images/July2020.PNG)
-**Interpreting the Interactive Map** <br>
+  
 The graph shows how the selected rate (seasonally adjusted) changes over time and across different months/years. <br>
 
   - Read csv file into Plotly
-  - Leveraged JavaScript/plotly line chart to showcase trend of unemployment rate and compare month to month and be able to highlight events
+  - Leveraged JavaScript/plotly line chart to showcase trend of unemployment rate and compare month to month and be able to highlight events <br>
+![Interactive Map](images/July2020.PNG) <br>
+![Interactive Map2](images/linegraph.png) <br>
 
 Conclusion
 =============
