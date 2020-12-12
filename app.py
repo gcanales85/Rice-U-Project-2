@@ -48,6 +48,11 @@ def home():
     # return("This")
     return render_template("index.html")
 
+@app.route("/second_graph")
+def second_page():
+    # return("This")
+    return render_template("second_graph.html")
+
 
 @app.route("/api/states")
 def states():
