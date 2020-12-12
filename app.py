@@ -34,7 +34,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
 db = SQLAlchemy(app)
 pg_user = 'postgres'
-pg_password = 'Watermelontessa7'
+pg_password = 'password1'
 db_name = 'unemployment_db2'
 
 connection_string = f"{pg_user}:{pg_password}@localhost:5432/{db_name}"
