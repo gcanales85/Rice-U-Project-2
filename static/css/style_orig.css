@@ -1,31 +1,19 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  float: right;
 }
 
-#map,
-body,
-html {
-  height: 100%;
-}
-
-.box {
-  height: fit-content;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-top: 10px;
-  padding: 20px;
-  color:rgb(197, 223, 231);
-}
-
-.bubblebox {
-  height: 500px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  padding: 20px;
+#map{
+  position: relative;
+  top:100px;
+  bottom:10px;
+  width:100%;
+  height: 750px;
+  padding-top: 10px;
+  display: block;
+  float: center;
 }
 
 .container {
@@ -47,29 +35,29 @@ html {
   margin-bottom: 100px;
 }
 
-h1{
-  text-align: center;
-  color:rgb(180, 96, 96);
+h1 {
+  font-size: 30px;
+  line-height: 30px;
   font-weight: bold;
-  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  display: block;
+  color: black;
+  height: fit-content;
 }
 
-
 h2 {
-  font-size: 50px;
-  line-height: 25px;
+  font-size: 24px;
+  line-height: 20px;
   margin-bottom: 10px;
   margin-top: 10px
 }
 
-h3{
-  color:rgb(211, 211, 211);
-  font-size: x-large;
+h3 {
+  font-size: 100px;
+  line-height: 30px;
   font-weight: bold;
-  text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgba(56, 56, 56, 0.76);
+  display: block;
+  color: black;
+  height: fit-content;
 }
 
 a {
@@ -79,32 +67,38 @@ a {
 
 #console {
   position: absolute;
-  width: 95%;
+  width: 70%;
   height: 65%;
-  margin: 5px;
-  padding: 10px 10px;
+  margin: 10px;
+  padding: 10px 20px;
   background-color: white;
 }
 
 #sliderbar {
   position: absolute;
-  width: 95%;
-  height: 100px;
+  width: 100%;
+  height: 75%;
   margin-left: auto;
   margin-right: auto;
 
 }
 
-body{
-
-  background: rgb(255, 255, 255);
+body,
+html {
+  height: 100%;
+  width: auto;
 }
+
 .session {
   margin-bottom: 20px;
-  height: 65%;
-  width: 95%;
+  height: fit-content;
+
 }
 
+.row {
+  height: fit-content;
+  width: 100%;
+}
 
 .colors {
   background: linear-gradient(to right, #d5e5f5, #9dd0eb, #5a9ec7, #2776b0, #04386e);
@@ -119,9 +113,8 @@ body{
 
 
 .leaflet-container{
-  border-radius: 10px;
-  height: 500px;
-  }
+  float: center;
+}
 
 .leaflet-popup-content {
   text-align: center;
@@ -132,11 +125,11 @@ body{
   padding: 14px 12px;
   font: 24px Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: rgb(110, 110, 110);
+  color: #555;
   background: #fff;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .legend ul {
@@ -167,7 +160,13 @@ body{
   float: right;
 } */
 
-
+h1 {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 .spot{
   width: 15px;
   height: 15px;
@@ -186,12 +185,4 @@ body{
 }
 .lt3{
   background: rgb(207,222,231);
-}
-.row {
-  height: 150px;
-  width: 100%;
-}
-
-#mapheight {
-  height: 700px !important;
 }
