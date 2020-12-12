@@ -1,72 +1,51 @@
 # Rice-U-Project-2
-1.Overview
-Documents attached provide an overview of the sources and processing applied for US unemployment data.The documentation is organized by contributor and output of information showcased in the final html file.
+Overview
+---------------
 
-2.US Unemployment in the last 10 years, seasonally adjusted
-Summary:Unemployment rates were lower in October in 37 states and the District of Columbia, higher in 8 states, and stable in 5 states, the U.S. Bureau of Labor Statistics reported today. Forty-seven states and the District had jobless rate increases from a year earlier and three states had little or no change. The national unemployment rate declined by 1.0 percentage point over the month to 6.9 percent but was 3.3 points higher than in October 2019.
+*Why Unemployment?* <br>
+Unemployment rate is important gauge of the economy’s growth rate – it measures the effect of economic events, such as recession or in the most recent event, COVID-19. 
 
-Geographies: National (United States of America), State.
-States in scope: 
-1. Alabama
-2. Alaska
-3. Arizona
-4. Arkansas
-5. California
-6. Colorado
-7. Connecticut
-8. Delaware
-9. Florida
-10. Georgia
-11. Idaho
-12. Hawaii
-13. Illinois
-14. Indiana
-15. Iowa
-16. Kansas
-17. Kentucky
-18. Louisiana
-19. Maine
-20. Maryland
-21. Massachusetts
-22. Michigan
-23. Minnesota
-24. Mississippi
-25. Missouri
-26. Montana
-27. Nebraska
-28. Nevada
-29. New Hampshire
-30. New Jersey
-31. New Mexico
-32. New York
-33. North Carolina
-34. North Dakota
-35. Ohio
-36. Oklahoma
-37. Oregon
-38. Pennsylvania
-39. Rhode Island
-40. South Carolina
-41. South Dakota
-42. Tennessee
-43. Texas
-44. Utah
-45. Vermont
-46. Virginia
-47. Washington
-48. West Virginia
-49. Wisconsin
-50. Wyoming
-51. Alaska
-52. Hawaii
-53. Puerto Rico
+General indicators:
+  - Low unemployment rate = expanding economy = growth
+  - High unemployment rate = decreasing economy = low investment, low hiring
+  - Investors use unemployment rates to determine sectors losing jobs faster, and then determine which mutual funds to sell, ultimately influencing stock market, 401k savings and personal savings. 
 
-Date Range: January 2010 until the most recent date available (October 2020)
-information about the imputation methodology, see the accompanying paper
+*What is considered to be “unemployed”* <br>
+The unemployment rate is the number of unemployed divided by the number  in the civilian labor force.
+  - To be counted in the unemployment rate, you not only have to be without a job, you have to be actively looking for a work in the past 4 weeks. 
+  - If you are temporarily laid off and are waiting to be called back to a job, you’re still counted. 
+*What is NOT to  be considered “unemployed”*
+  - If you’ve given up looking for work, you’re not counted in the unemployment rate.
 
-Breakdowns:
-• State
-• Months / Year
-• Seasonally Adjusted Rates
+*Soure of Truth*
+<br>
+US unemployment data was gathered from [The U.S. Department of Labor](https://www.bls.gov/charts/state-employment-and-unemployment/state-unemployment-rates-animated.htm) - **State unemployment rates over the last 10 years, seasonally adjusted**
 
-Data Source: State-level reported by the U.S. Department of Labor. (https://www.bls.gov/charts/state-employment-and-unemployment/state-unemployment-rates-animated.htm)
+  - Seasonally adjusted rates : is a statistical method of removing the seasonal component of removing the seasonal component of a time series that is used when analyzing  non-seasonal trends. 
+
+  - Date Range: January 2010 until the most recent date available (October 2020) 
+
+  - Breakdowns: • State • Months / Year • Seasonally Adjusted Rates
+
+  - Geographies in scope: National (United States of America),  52 states.
+  
+Data Processing 
+---------------
+**Interpreting the Interactive Map** <br>
+The map shows how moving the slider across different time periods, reflects the changes in state color to demonstrate high/lows of unemployment rates. 
+
+  - Loading department of labor data with unemployment rate per state from 2010-2020 Postgres to flask. 
+
+  - Leveraged JavaScript and leaflet to load and match the geojson data with the coordinates per each state with the unemployment data for each state on a given period of time
+![Interactive Map](images/July2020.PNG)
+##Interpreting the Interactive Map## <br>
+The graph shows how the selected rate (seasonally adjusted) changes over time and across different months/years. <br>
+
+  - Read csv file into Plotly
+  - Leveraged JavaScript/plotly line chart to showcase trend of unemployment rate and compare month to month and be able to highlight events
+
+Conclusion
+=============
+Unemployment rates were lower in October in 37 states and the District of Columbia, higher in 8 states, and stable in 5 states, the U.S. Bureau of Labor Statistics reported today. Forty-seven states and the District had jobless rate increases from a year earlier and three states had little or no change. The national unemployment rate declined by 1.0 percentage point over the month to 6.9 percent but was 3.3 points higher than in October 2019.
+
+
