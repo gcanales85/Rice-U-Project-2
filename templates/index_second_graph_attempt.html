@@ -23,7 +23,50 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <script>
+      window.onload = function () {
+      
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        exportEnabled: true,
+        title:{
+          text: "US Unemployment rates over the last 10 years"
+        },
+        axisY:{ 
+          title: "Percentage",
+          interval: .2,
+          suffix: "%",
+          valueFormatString: "#.0"
+        },
+        data: [{
+          type: "stepLine",
+          yValueFormatString: "#0.0\"%\"",
+          xValueFormatString: "MMM YYYY",
+          markerSize: 5,
+          dataPoints: [
+            { x: new Date(2010, 0), y: 8.75 },
+            { x: new Date(2016, 1), y: 4.9 },
+            { x: new Date(2016, 2), y: 5.0 },
+            { x: new Date(2016, 3), y: 5.0, indexLabel: "Highest", indexLabelFontColor: "#C24642" },
+            { x: new Date(2016, 4), y: 4.7 },
+            { x: new Date(2016, 5), y: 4.9 },
+            { x: new Date(2016, 6), y: 4.9 },
+            { x: new Date(2016, 7), y: 4.9 },
+            { x: new Date(2016, 8), y: 4.9 },
+            { x: new Date(2016, 9), y: 4.8 },
+            { x: new Date(2016, 10), y: 4.6 },
+            { x: new Date(2016, 11), y: 4.7 },
+            { x: new Date(2017, 0), y: 4.8 },
+            { x: new Date(2017, 1), y: 4.7 },
+            { x: new Date(2017, 2), y: 4.5 },
+            { x: new Date(2017, 3), y:4.4 },
+            { x: new Date(2017, 4), y:4.3 },
+            { x: new Date(2017, 5), y:4.4 }
+          ]
+        }]
+      });
+      chart.render()}
+    </script>    
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.html">Unemployment Rate</a>
@@ -35,6 +78,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="">About</a>
+            <a class="nav-link" href="second_graphs.html">Other Graphics</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json">Geo Json Data</a>
@@ -53,7 +97,7 @@
     </div>
 
      <div class="row">
-        <div class="col-xl-12" >
+        <div class="col-xl-6 float-left" >
           <div id='console'>
             <p>Data: <a
                 href='unemployment.json'>Unemployment
@@ -63,7 +107,7 @@
               <div class='session' id='sliderbar'>
                 <h2>Date: <label id='active-date'>Oct 2010</label></h2>
                 <!-- have to update timebar -->
-                <input id='slider' class='row' type='range' min='0' max='120' step='1' value='0' />
+                <input id='slider' class='row' type='range' min='0' max='100' step='1' value='0' />
               </div>
             </div>
           </div>
@@ -73,10 +117,17 @@
     <div class="row">
       <div class="col-xl-12"  id="mapheight">
           <div class="box" id="map">
+          </div>
+      </div>
+    </div>       
+    <div class="row"> 
+      <div class="col-xl-12"  id="mapheight">
+        <div class="box" id="chartContainer">      
             <h1></h1>
           </div>
       </div>    
     </div>
+
     
 
   <!-- JS  -->

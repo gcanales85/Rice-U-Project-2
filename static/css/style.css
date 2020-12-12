@@ -1,3 +1,13 @@
+.navbar-brand {
+  color: rgb(76, 78, 179) !important;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  background-color: white;
+}
+
+.nav-link{
+  color: rgb(76, 78, 179) !important;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -16,16 +26,7 @@ html {
   margin-right: 20px;
   margin-top: 10px;
   padding: 20px;
-  color:rgb(197, 223, 231);
-}
-
-.bubblebox {
-  height: 500px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-top: 20px;
-  padding: 20px;
+  color:rgb(76, 78, 179); 
 }
 
 .container {
@@ -49,7 +50,7 @@ html {
 
 h1{
   text-align: center;
-  color:rgb(180, 96, 96);
+  color:rgb(0, 0, 0);
   font-weight: bold;
   font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 }
@@ -63,18 +64,16 @@ h2 {
 }
 
 h3{
-  color:rgb(211, 211, 211);
+  color:rgb(116, 116, 116);
   font-size: x-large;
   font-weight: bold;
   text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgba(56, 56, 56, 0.76);
+  font-family:'Helvetica Neue', Helvetica, Arial, Sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: #2dc4b2;
+  color: white;
 }
 
 #console {
@@ -83,7 +82,7 @@ a {
   height: 65%;
   margin: 5px;
   padding: 10px 10px;
-  background-color: white;
+  background-color:  rgb(76, 78, 179);
 }
 
 #sliderbar {
@@ -97,7 +96,7 @@ a {
 
 body{
 
-  background: rgb(255, 255, 255);
+  background: rgb(76, 78, 179);
 }
 .session {
   margin-bottom: 20px;
