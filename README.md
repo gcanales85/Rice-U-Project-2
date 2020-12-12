@@ -6,6 +6,7 @@ Documents attached provide an overview of the sources and processing applied for
 Summary:Unemployment rates were lower in October in 37 states and the District of Columbia, higher in 8 states, and stable in 5 states, the U.S. Bureau of Labor Statistics reported today. Forty-seven states and the District had jobless rate increases from a year earlier and three states had little or no change. The national unemployment rate declined by 1.0 percentage point over the month to 6.9 percent but was 3.3 points higher than in October 2019.
 
 Data Source: State-level reported by the U.S. Department of Labor. (https://www.bls.gov/charts/state-employment-and-unemployment/state-unemployment-rates-animated.htm)
+
 Geographies: National (United States of America), State.
 States in scope: 
 1. Alabama
